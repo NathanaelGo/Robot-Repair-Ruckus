@@ -16,28 +16,18 @@ public class BotControls : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Controls set in the Unity editor
-        //Setting intial controls
-        /*
-        controls[0] = "w";
-        controls[1] = "a";
-        controls[2] = "d";
-        controls[3] = "s";
-        controls[4] = "f";
-        */
-
 
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         
         //Movement Code
 
         if (Input.GetKey(controls[0]))
         {
-            botRB.position += new Vector2 (0.0f, maxSpeed)*Time.deltaTime;
+            botRB.position += new Vector2 (0.0f, maxSpeed) * Time.deltaTime;
         }
         if (Input.GetKey(controls[1]))
         {

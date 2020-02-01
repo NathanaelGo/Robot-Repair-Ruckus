@@ -30,9 +30,7 @@ public class Randomizer : MonoBehaviour
     {
         System.Random random = new System.Random();
 
-        List<string> controlHolder = new List<string>() { "e", "r", "t", "y", "u", "i", "o", "p", "[", "]", "f", "g", "h", "j", "k", "l", ";", "'", "z", "x", "c", "v", "b", "n", " ", ",", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" };
-        //ArrayList controlsHolder = new ArrayList();
-        //controlsHolder.AddRange(useableControls);
+        List<string> controlHolder = new List<string>() { "e", "r", "t", "y", "u", "i", "o", "p", "[", "]", "f", "g", "h", "j", "k", "l", ";", "'","space", "z", "x", "c", "v", "b", "n", ",", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" };
 
         string[] blueControls = new string[5];
         string[] redControls = new string[5];
@@ -45,18 +43,16 @@ public class Randomizer : MonoBehaviour
             blueControls[i] = controlHolder[randomHolderVal];
             controlHolder.RemoveAt(randomHolderVal);
 
-            /*
-             * Uncomment and add red gameobject via unity editor for red's control change
+            
             randomHolderVal = random.Next(0, controlHolder.Count);
             redControls[i] = controlHolder[randomHolderVal];
             controlHolder.RemoveAt(randomHolderVal);
-             * 
-             */
+     
         }
 
         //Change controls here
         blueBot.GetComponent<BotControls>().updateControls(blueControls);
-        //redBot.GetComponent<BotControls>().updateControls(redControls);
+        redBot.GetComponent<BotControls>().updateControls(redControls);
 
     }
 
