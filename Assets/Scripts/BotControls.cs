@@ -10,7 +10,8 @@ public class BotControls : MonoBehaviour
     
     public float maxSpeed = 2.0f;                       //Speed of the player
 
-
+    public CommandPointManager cpm;
+    public int playerNum = 0;
 
 
     // Start is called before the first frame update
@@ -58,9 +59,17 @@ public class BotControls : MonoBehaviour
 
     public void updateControls(string[] newControls)                                    //Set controls
     {
+        int[] cpState = cpm.cpState;
         for(int i = 0; i < 5; i++)
         {
-            controls[i] = newControls[i];
+            if (cpState[i] == playerNum)
+            {
+                controls[i] = desiredControls[i];
+            }
+            else
+            {
+                controls[i] = newControls[i];
+            }
         }
     }
 
